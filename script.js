@@ -44,7 +44,7 @@ const events = [
     description: "A celebration of cultural diversity where students can showcase traditional clothing, food, performances, art, and cultural heritage.",
     activities: ["Cultural Performance", "Traditional Dress", "Cultural Stall", "Food Display", "Art Exhibition"],
     /* PLACEHOLDER URL: Replace with your custom Culture Day card image URL */
-    cardImageUrl: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80",
+    cardImageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxP3ccYxj7dJcMTmoXfpxyAAbU3ga1Rm7vZothKQ7YLQ&s=10",
     /* PLACEHOLDER URL: Replace with your custom Culture Day form background image URL */
     bgImageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ircc7nGzmH4U28If4qLisXdPZVrs_o8vAyrF8PnMCQ&s=10"
   },
