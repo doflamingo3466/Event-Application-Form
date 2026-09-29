@@ -1,92 +1,410 @@
-/* -------------------------------------------------
-   Superior College Events – Custom Styling
-   ------------------------------------------------- */
-
-/* ---------- 1. Global variables (easy tweaking) ---------- */
+/* ========================================== */
+/* 1. CUSTOM COLOR VARIABLES & DESIGN SYSTEM  */
+/* ========================================== */
 :root {
-    --primary: #0062e6;          /* deep blue */
-    --primary-light: #33aeff;    /* gradient end */
-    --accent: #ff9800;           /* orange used for badges */
-    --bg-light: #f8f9fa;
-    --font-main: 'Poppins', system-ui, sans-serif;
+  --primary-color: #3a86ff;
+  --primary-hover: #2563eb;
+  --dark-navy: #0f172a;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --border-radius-lg: 20px;
+  --border-radius-md: 12px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* ---------- 2. Base reset & typography ---------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
 
 body {
-    margin: 0;
-    font-family: var(--font-main);
-    background: var(--bg-light);
-    color: #212529;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* ---------- 3. Navbar ---------- */
-.navbar { background: var(--primary); }
-
-/* ---------- 4. Hero Section – gradient, vertical centering ---------- */
-.hero {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    min-height: 80vh;
-    padding: 4rem 1rem;
+/* ========================================== */
+/* 2. ADVANCED NAVBAR STYLING                 */
+/* ========================================== */
+.custom-navbar {
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------- 5. Grid for event cards (pure CSS, no extra JS) ---------- */
-.grid-cards {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.brand-icon-box {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary-color), #8338ec);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.2rem;
 }
 
-/* Card styling – keep it light, hover lift */
-.card {
-    border: none;
-    border-radius: .75rem;
-    overflow: hidden;
-    transition: transform .2s, box-shadow .2s;
-    background: #fff;
-}
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+.brand-icon-box.small-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
 }
 
-/* Badge colour – use the accent for all categories */
-.card .badge {
-    background: var(--accent);
-    font-weight: 600;
+.brand-text {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: white;
+  letter-spacing: -0.5px;
 }
 
-/* ---------- 6. Modal – header colour match ---------- */
-.modal-header { background: var(--primary); color: #fff; }
-
-/* ---------- 7. Form – tidy, no extra spacing ---------- */
-.form-select,
-.form-control { border-radius: .5rem; }
-
-.btn-outline-primary:hover,
-.btn-primary:hover,
-.btn-success:hover,
-.btn-outline-danger:hover {
-    opacity: .9;
+.custom-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.75);
+  padding: 8px 16px !important;
+  border-radius: 20px;
+  transition: var(--transition-smooth);
 }
 
-/* ---------- 8. Dashboard cards ---------- */
-.dashboard-card {
-    background: #fff;
-    border-radius: .5rem;
-    box-shadow: 0 .25rem .5rem rgba(0,0,0,.1);
-    padding: 1rem;
-    text-align: center;
+.custom-navbar .nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
 }
-.dashboard-card.bg-primary   { background: var(--primary); color:#fff; }
-.dashboard-card.bg-success   { background: #28a745; color:#fff; }
 
-/* ---------- 9. Footer ---------- */
-footer { background: var(--primary); color: #fff; }
+/* ========================================== */
+/* 3. HERO SECTION WITH IMAGE & OVERLAY       */
+/* ========================================== */
+.hero-section {
+  position: relative;
+  min-height: 75vh;
+  padding: 90px 0;
+  background-color: var(--dark-navy);
+  /* PLACEHOLDER BACKGROUND URL: Fallback hero background image */
+  background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+}
 
-/* ---------- 10. Small utility tweaks ---------- */
-.table th,
-.table td { vertical-align: middle; }
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.75) 100%);
+}
+
+.hero-badge {
+  background: rgba(58, 134, 255, 0.2);
+  border: 1px solid rgba(58, 134, 255, 0.4);
+  color: #60a5fa;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 600px;
+}
+
+.hero-card-preview {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+}
+
+.hero-img {
+  height: 280px;
+  object-fit: cover;
+}
+
+/* ========================================== */
+/* 4. DASHBOARD STATS BANNER                  */
+/* ========================================== */
+.stats-banner {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 18px;
+  background: #f8fafc;
+  border-radius: var(--border-radius-md);
+  border: 1px solid #e2e8f0;
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+}
+
+.stat-number {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ========================================== */
+/* 5. CUSTOM BUTTON STYLES                    */
+/* ========================================== */
+.btn-custom-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: white;
+  border: none;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(58, 134, 255, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.btn-custom-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(58, 134, 255, 0.4);
+  color: white;
+}
+
+.btn-custom-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  padding: 10px 26px;
+  border-radius: 30px;
+  transition: var(--transition-smooth);
+}
+
+.btn-custom-outline:hover {
+  background: white;
+  color: var(--dark-navy);
+}
+
+.btn-custom-secondary {
+  background: #e2e8f0;
+  color: #475569;
+  border: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: var(--transition-smooth);
+}
+
+.btn-custom-secondary:hover {
+  background: #cbd5e1;
+  color: #1e293b;
+}
+
+/* ========================================== */
+/* 6. EVENT CARDS WITH IMAGE HOLDERS           */
+/* ========================================== */
+.custom-badge {
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.custom-event-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.custom-event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.card-img-holder {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.card-img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.custom-event-card:hover .card-img-holder img {
+  transform: scale(1.08);
+}
+
+.card-category-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(6px);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ========================================== */
+/* 7. DYNAMIC BACKGROUND & GLASS FORM         */
+/* ========================================== */
+.dynamic-event-bg {
+  padding: 80px 0;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.6s ease-in-out;
+  /* Default background image placeholder */
+  background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1920&q=80');
+}
+
+.dynamic-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.glass-form-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.custom-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.custom-input-icon {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: var(--primary-color);
+}
+
+.custom-input {
+  border-color: #cbd5e1;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius-md);
+}
+
+.custom-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.15);
+}
+
+.activity-box {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid #e2e8f0;
+}
+
+/* ========================================== */
+/* 8. ADMIN TABLE STYLING                     */
+/* ========================================== */
+.custom-table-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.custom-table-card table thead {
+  background-color: var(--dark-navy);
+  color: white;
+}
+
+.custom-table-card table thead th {
+  padding: 16px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.custom-table-card table tbody td {
+  padding: 16px;
+  border-color: #f1f5f9;
+}
+
+/* ========================================== */
+/* 9. FOOTER & MODAL STYLING                  */
+/* ========================================== */
+.custom-footer {
+  background-color: var(--dark-navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 8px;
+  transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+  color: white;
+  transform: translateX(3px);
+}
+
+.custom-modal {
+  border-radius: 24px;
+  overflow: hidden;
+  border: none;
+}
+
+/* ========================================== */
+/* 10. RESPONSIVE BREAKPOINTS                 */
+/* ========================================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .glass-form-card {
+    padding: 24px;
+  }
+
+  .stat-card {
+    padding: 10px;
+  }
+}
